@@ -2,3 +2,10 @@
      background: url("assets/starwarsBackground.jpg") no-repeat center center fixed;
  }
 
+/* #character {
+    width: 100px;
+} */
+
+#seeThrough {
+    background-color: transparent;
+}

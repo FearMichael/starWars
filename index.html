@@ -11,35 +11,84 @@
 <script src='logic.js'></script>
 </head>
 <body>
-    <div class="container text-center">
+    <div class="container text-center text-light px-4">
         <h1>Star Wars RPG</h1>
     </div>
-<div class="row">
-    <!-- Char 1 -->
-    <div class="col">
-        <img src="assets/luke.jpg">
-    </div>
-     <!-- Char 2 -->
-     <div class="col">
-            <img src="assets/bb8.png">
-    </div>
-     <!-- Char 3 -->
-     <div class="col">
-            <img src="assets/yoda.jpg">
-    </div>
-     <!-- Char 4 -->
-     <div class="col">
-            <img src="assets/darthVader.jpg">
-    </div>
-     <!-- Char 5 -->
-     <div class="col">
-            <img src="assets/luke.jpg">
-
-    </div>
-       <!-- Char 6 -->
-    <div class="col">
-        
+<div class="container-fluid">
+    <div class="row">
+        <!-- Char 1 -->
+        <div class="col-2">
+            <div class="card seeThrough">
+                <img class="card-img-top" src="assets/luke.jpg" alt="Luke Skywalker">
+                <div class="card-body text-center seeThrough">
+                    <button class="btn btn-primary text-center character" value="luke">Choose Luke</button>
+                </div>
+            </div>
+        </div>
+        <!-- Char 2 -->
+        <div class="col-2">
+                <div class="card seeThrough">
+                    <img class="card-img-top" src="assets/bb8.png" alt="BB8">
+                    <div class="card-body text-center seeThrough">
+                        <button class="btn btn-primary text-center character" value="bb8">Choose BB8</button>
+                    </div>
+                </div>
+        </div>
+        <!-- Char 3 -->
+        <div class="col-2">
+                <div class="card seeThrough">
+                    <img class="card-img-top" src="assets/yoda.jpg" alt="Yoda">
+                    <div class="card-body text-center seeThrough">
+                        <button class="btn btn-primary text-center character" value="yoda">Choose Yoda</a>
+                    </div>
+                </div>
+        </div>
+        <!-- Char 4 -->
+        <div class="col-2">
+                <div class="card seeThrough">
+                    <img class="card-img-top" src="assets/darthVader.jpg" alt="Darth Vader">
+                    <div class="card-body text-center seeThrough">
+                        <button class="btn btn-primary text-center character" value="vader">Defend with Darth Vader</button>
+                    </div>
+                </div>
+        </div>
+        <!-- Char 5 -->
+        <div class="col-2">
+                <div class="card seeThrough">
+                    <img class="card-img-top" src="assets/Jabba.jpeg" alt="Jabba The Hutt">
+                    <div class="card-body text-center seeThrough">
+                        <button class="btn btn-primary text-center character" value="jabba">Defend with Jabba</button>
+                    </div>
+                </div>
+        </div>
+        <!-- Char 6 -->
+        <div class="col-2">
+                <div class="card seeThrough">
+                    <img class="card-img-top" src="assets/palpatine.png" alt="Emperor Palpatine">
+                    <div class="card-body text-center seeThrough">
+                        <button class="btn btn-primary text-center character" value="palpatine">Defend with Emperor Palpatine</button>
+                    </div>
+                </div>
+        </div>
     </div>
 </div>
+<!-- Play Area -->
+<div class="container mt-4 text-center text-light">
+    <button class="btn btn-lg" id="attackButton">ATTACK!</button>
+</div>
+<div class="container mt-4 text-center text-light">
+    <div class="row">
+        <div class="col-6">
+            <h2>Challenger</h2>
+            <span class="mt-4" id="challenger"></span>
+        </div>
+        <div class="col-6">
+            <h2>Defender</h2>
+            <span class="mt-4" id="defender"></span>
+        </div>
+    </div>
+</div>
+
+
 </body>
 </html>
