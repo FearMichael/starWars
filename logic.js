@@ -90,7 +90,8 @@ function attack() {
     challengerAttack.text(challenger.attack);
     //Win and loss calculations
     if (defender.hp <= 0) {
-        alert("Defender has been defeated! Choose your next defender...");
+        $("#defenderDown").show(800);
+        attackButton.hide();
         defenderSelected = false;
         defenderName.text("");
         defenderAttack.text("");
@@ -188,6 +189,12 @@ attackButton.on("click", function(event) {
     if (defenderSelected == true && challengerSelected == true) {
         attack();
     }
+});
+
+// Animations/Alerts
+$("#defenderDownButton").on("click", function(event) {
+    $("#defenderDown").hide(300);
+    attackButton.show(300);
 });
 
 //attack button attacks with good character and auto counter attacks with bad character

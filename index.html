@@ -14,78 +14,94 @@
     <div class="container text-center text-light px-4">
         <h1>Star Wars RPG</h1>
     </div>
-<div class="container-fluid align-self-stretch">
+<div class="container-fluid">
     <div class="row">
         <!-- Char 1 -->
-        <div class="col-2">
-            <div class="card seeThrough" id="lukeImage">
-                <img class="card-img-top" src="assets/luke.jpg" alt="Luke Skywalker">
-                <div class="card-body text-center seeThrough">
-                    <button class="btn btn-primary text-center character" value="luke">Choose Luke</button>
+        <div class="col-lg-2 col-sm-4 d-flex">
+            <div class="card flex-fill goodguys bg-success" id="lukeImage">
+                <img class="card-img-top charImage" src="assets/luke.jpg" alt="Luke Skywalker">
+                <div class="card-body text-center">
+                    <button class="btn btn-light text-center character" value="luke">Choose Luke</button>
                 </div>
             </div>
         </div>
         <!-- Char 2 -->
-        <div class="col-2">
-            <div class="container">
-                <div class="card seeThrough" id="bb8Image">
-                    <img class="card-img-top" src="assets/bb8.png" alt="BB8">
+        <div class="col-lg-2 col-sm-4 d-flex">
+            <!-- <div class="container"> -->
+                <div class="card flex-fill bg-success" id="bb8Image">
+                    <img class="card-img-top charImage " src="assets/bb8.png" alt="BB8">
                     <div class="card-body text-center seeThrough">
-                        <button class="btn btn-primary text-center character" value="bb8">Choose BB8</button>
+                        <button class="btn btn-light text-center character" value="bb8">Choose BB8</button>
                     </div>
                 </div>
-            </div>
+            <!-- </div> -->
                 
         </div>
         <!-- Char 3 -->
-        <div class="col-2">
-            <div class="container">
-                <div class="card seeThrough" id="yodaImage">
-                    <img class="card-img-top" src="assets/yoda.jpg" alt="Yoda">
+        <div class="col-lg-2 col-sm-4 d-flex">
+            <!-- <div class="container"> -->
+                <div class="card flex-fill bg-success" id="yodaImage">
+                    <img class="card-img-top charImage " src="assets/yoda.jpg" alt="Yoda">
                     <div class="card-body text-center seeThrough">
-                        <button class="btn btn-primary text-center character" value="yoda">Choose Yoda</a>
+                        <button class="btn btn-light text-center character" value="yoda">Choose Yoda</a>
                     </div>
                 </div>
-            </div>
+            <!-- </div> -->
                 
         </div>
         <!-- Char 4 -->
-        <div class="col-2">
-            <div class="container">
-                <div class="card seeThrough" id="vaderImage">
-                    <img class="card-img-top" src="assets/darthVader.jpg" alt="Darth Vader">
+        <div class="col-lg-2 col-sm-4 d-flex">
+            <!-- <div class="container"> -->
+                <div class="card seeThrough flex-fill bg-danger" id="vaderImage">
+                    <img class="card-img-top charImage" src="assets/darthVader.jpg" alt="Darth Vader">
                     <div class="card-body text-center seeThrough">
-                        <button class="btn btn-primary text-center character" value="vader">Fight Darth Vader</button>
+                        <button class="btn btn-light text-center character" value="vader">Fight Darth Vader</button>
                     </div>
                 </div>
-            </div>
+            <!-- </div> -->
                 
         </div>
         <!-- Char 5 -->
-        <div class="col-2">
-            <div class="container">
-                <div class="card seeThrough" id="jabbaImage">
-                    <img class="card-img-top" src="assets/Jabba.jpeg" alt="Jabba The Hutt">
+        <div class="col-lg-2 col-sm-4 d-flex">
+            <!-- <div class="container"> -->
+                <div class="card seeThrough flex-fill bg-danger" id="jabbaImage">
+                    <img class="card-img-top charImage" src="assets/Jabba.jpeg" alt="Jabba The Hutt">
                     <div class="card-body text-center seeThrough">
-                        <button class="btn btn-primary text-center character" value="jabba">Fight Jabba</button>
+                        <button class="btn btn-light text-center character" value="jabba">Fight Jabba</button>
                     </div>
                 </div>
-            </div>
+            <!-- </div> -->
                 
         </div>
         <!-- Char 6 -->
-        <div class="col-2">
-            <div class="container">
-                    <div class="card seeThrough" id="palpatineImage">
-                        <img class="card-img-top" src="assets/palpatine.png" alt="Emperor Palpatine">
+        <div class="col-lg-2 col-sm-4 d-flex">
+            <!-- <div class="container"> -->
+                    <div class="card seeThrough flex-fill bg-danger" id="palpatineImage">
+                        <img class="card-img-top charImage" src="assets/palpatine.png" alt="Emperor Palpatine">
                     <div class="card-body text-center seeThrough">
-                        <button class="btn btn-primary text-center character" value="palpatine">Fight Emperor Palpatine</button>
+                        <button class="btn btn-light text-center character" value="palpatine">Fight Emperor Palpatine</button>
                     </div>
                 </div>
-            </div>
+            <!-- </div> -->
                
         </div>
     </div>
+</div>
+<!-- Instructions Area -->
+<div class="container-fluid text-center text-light py-4 my-4">
+    <h4>Instructions</h4>
+    <ul>
+        <li>Select a good guy (green) to attack with.</li>
+        <li>Select a bad guy (red) to attack first</li>
+        <li>Your good guy's attack increases in strength with each attack</li>
+        <li>The bad guy will automatically fight back</li>
+        <li>Their health will be updated in the play area</li>
+        <li>Keep defeating bad guys until you've protected the universe</li>
+    </ul>
+</div>
+<div class="container-fluid text-center text-light bg-success py-3" id="defenderDown">
+    <h3>Defender Down! Keep it up!</h3>
+    <button class="btn" id="defenderDownButton">Fight!</button>
 </div>
 <!-- Play Area -->
 <div class="container mt-4 text-center text-light">

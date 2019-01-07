@@ -6,8 +6,9 @@
     width: 100px;
 } */
 
-#seeThrough {
-    background-color: transparent;
+#goodguys {
+    color: rgba(0, 128, 0, 0.712);
+
 }
 
 .fightAreaBg {
@@ -16,4 +17,14 @@
 
 audio {
     width: 20%;
+}
+
+.charImage {
+    width: 100%;
+    height: 15rem;
+    object-fit: cover;
+}
+
+#defenderDown {
+    display: none;
 }
