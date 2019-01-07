@@ -1,5 +1,12 @@
 $(document).ready(function () {
 
+$(document).on("click", function(event) {
+    if (soundPlayed === 0) {
+        $("#starwarsSoundtrack")[0].play();
+        soundPlayed++;
+    }
+});
+
 //JSON for each character
 var lukeSkywalker = {
     name: "Luke Skywalker",
@@ -15,7 +22,7 @@ var bb8 = {
 
 var yoda = {
     name: "Yoda",
-    attack: 12,
+    attack: 10,
     hp: 200,
 };
 
@@ -38,15 +45,30 @@ var palpatine = {
 };
 
 // Variable declarations
-
+var soundPlayed = 0;
+var defendersDefeated = 0;
 var attackButton = $("#attackButton");
-var defenderPlace = $("#defender");
-var challengerPlace = $("#challenger");
 var challengerSelected = false;
 var defenderSelected = false;
 var attackCount = 1;
 var challenger;
 var defender;
+var vaderImage = $("#vaderImage");
+var jabbaImage = $("#jabbaImage");
+var palpatineImage = $("#palpatineImage");
+var lukeImage = $("#lukeImage");
+var bb8Image = $("#bb8Image");
+var yodaImage = $("#yodaImage");
+//Text-area variables
+var defenderPlace = $("#defender");
+var challengerPlace = $("#challenger");
+var challengerName = $("#challengerName");
+var challengerHealth = $("#challengerHealth");
+var challengerAttack = $("#challengerAttack");
+var defenderName = $("#defenderName");
+var defenderHealth = $("#defenderHealth");
+var defenderAttack = $("#defenderAttack");
+
 //Game start/setup
 
 //instructions to select a good and a bad player, directions change when one or the other is selected
@@ -54,23 +76,55 @@ var defender;
 // Attack function
 
 function attack() {
+    //Play audio
+    $("#lightsaber")[0].play();
+    //Damage defender
     defender.hp -= attackCount * challenger.attack;
-    defenderPlace.text("<p>" + defender.name + "<p>" + defender.counterAttack + "<p>" + defender.hp);
-    console.log(defender.hp);
-    console.log(defender.name);
+    defenderName.text(defender.name);
+    defenderHealth.text(defender.hp);
+    defenderAttack.text(defender.counterAttack);
+    //Damage challenger
     challenger.hp -= defender.counterAttack;
-    challengerPlace.text("<p>" + challenger.name + "<p>" + challenger.attack + "<p>" + challenger.hp);
-
-    console.log(challenger.name);
-    console.log(challenger.hp);
+    challengerName.text(challenger.name);
+    challengerHealth.text(challenger.hp);
+    challengerAttack.text(challenger.attack);
+    //Win and loss calculations
     if (defender.hp <= 0) {
         alert("Defender has been defeated! Choose your next defender...");
         defenderSelected = false;
-        defenderPlace.empty();
+        defenderName.text("");
+        defenderAttack.text("");
+        defenderHealth.text(""); 
+        defendersDefeated++;
+        switch(defender) {
+            case vader:
+            vaderImage.fadeOut(800);
+            break;
+            case jabba:
+            jabbaImage.fadeOut(800);
+            break;
+            case palpatine:
+            palpatineImage.fadeOut(800);
+            break;
+        };
     } else if (challenger.hp <= 0) {
         alert("Oh no, you lost! The Empire will Strike Back...")
+        switch(challenger) {
+            case luke:
+            lukeImage.fadeOut(800);
+            break;
+            case yoda:
+            yodaImage.fadeOut(800);
+            break;
+            case bb8:
+            bb8Image.fadeOut(800);
+            break;
+        };
     };
     attackCount++;
+    if (defendersDefeated === 3) {
+        alert("The Galaxy is safe once again! Congratulations Warrior");
+    }
 };
 
 //Display Health / attack when a character is selected
@@ -80,17 +134,23 @@ $(".btn.character").on("click", function(event) {
     if (challengerSelected == false) {
         switch(character) {
             case 'luke':
-            challengerPlace.append("<p>" + lukeSkywalker.name + "<p>" + lukeSkywalker.attack + "<p>" + lukeSkywalker.hp);
+            challengerName.text(lukeSkywalker.name);
+            challengerHealth.text(lukeSkywalker.hp);
+            challengerAttack.text(lukeSkywalker.attack);
             challengerSelected = true;
             challenger = lukeSkywalker;
             break;
             case 'bb8':
-            challengerPlace.append("<p>" + bb8.name + "<p>" + bb8.attack + "<p>" + bb8.hp);
+            challengerName.text(bb8.name);
+            challengerHealth.text(bb8.hp);
+            challengerAttack.text(bb8.attack);
             challengerSelected = true;
             challenger = bb8;
             break;
             case 'yoda':
-            challengerPlace.append("<p>" + yoda.name + "<p>" + yoda.attack + "<p>" + yoda.hp);
+            challengerName.text(yoda.name);
+            challengerHealth.text(yoda.hp);
+            challengerAttack.text(yoda.attack);
             challengerSelected = true;
             challenger = yoda;
             break;
@@ -99,17 +159,23 @@ $(".btn.character").on("click", function(event) {
     if (defenderSelected == false) {
         switch(character) {
             case 'vader':
-            defenderPlace.append("<p>" + vader.name + "<p>" + vader.counterAttack + "<p>" + vader.hp);
+            defenderName.text(vader.name);
+            defenderHealth.text(vader.hp);
+            defenderAttack.text(vader.counterAttack);
             defenderSelected = true;
             defender = vader;
             break;
             case 'jabba':
-            defenderPlace.append("<p>" + jabba.name + "<p>" + jabba.counterAttack + "<p>" + jabba.hp);
+            defenderName.text(jabba.name);
+            defenderHealth.text(jabba.hp);
+            defenderAttack.text(jabba.counterAttack);
             defenderSelected = true;
             defender = jabba;
             break;
             case 'palpatine':
-            defenderPlace.append("<p>" + palpatine.name + "<p>" + palpatine.counterAttack + "<p>" + palpatine.hp);
+            defenderName.text(palpatine.name);
+            defenderHealth.text(palpatine.hp);
+            defenderAttack.text(palpatine.counterAttack);
             defenderSelected = true;
             defender = palpatine;
             break;
@@ -127,7 +193,5 @@ attackButton.on("click", function(event) {
 //attack button attacks with good character and auto counter attacks with bad character
 
 //animation when player is eliminated
-
-
 
 });

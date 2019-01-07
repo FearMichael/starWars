@@ -9,3 +9,11 @@
 #seeThrough {
     background-color: transparent;
 }
+
+.fightAreaBg {
+    background-color: rgba(128, 128, 128, 0.705);  
+}
+
+audio {
+    width: 20%;
+}
