@@ -78,8 +78,9 @@ var defenderAttack = $("#defenderAttack");
 function attack() {
     //Play audio
     $("#lightsaber")[0].play();
+    var increasedAttack = attackCount * challenger.attack
     //Damage defender
-    defender.hp -= attackCount * challenger.attack;
+    defender.hp -= increasedAttack;
     defenderName.text(defender.name);
     defenderHealth.text(defender.hp);
     defenderAttack.text(defender.counterAttack);
@@ -87,7 +88,7 @@ function attack() {
     challenger.hp -= defender.counterAttack;
     challengerName.text(challenger.name);
     challengerHealth.text(challenger.hp);
-    challengerAttack.text(challenger.attack);
+    challengerAttack.text(increasedAttack);
     //Win and loss calculations
     if (defender.hp <= 0) {
         $("#defenderDown").show(800);
